@@ -1,0 +1,29 @@
+CREATE DATABASE jic_chat;
+USE jic_chat;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) UNIQUE,
+    password VARCHAR(30)
+);
+
+CREATE TABLE contacts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    owner VARCHAR(30),   -- صاحب الحساب
+    friend VARCHAR(30)   -- اسم صاحب في الكونتاكت
+);
+
+-- أمثلة بيانات
+INSERT INTO users(username, password) VALUES
+('ali', '123'),
+('sara', 'abc'),
+('omar', '111');
+
+-- Ali أضاف Sara و Omar في الكونتاكت
+INSERT INTO contacts(owner, friend) VALUES
+('ali', 'sara'),
+('ali', 'omar');
+
+-- Sara أضافت Ali
+INSERT INTO contacts(owner, friend) VALUES
+('sara', 'ali');
